@@ -3,6 +3,7 @@ module scenes {
     export class Play extends objects.Scene {
         //PRIVATE INSTANCE VARIABLES ++++++++++++
         private _playLabel: objects.Label;
+        private _rollButton: objects.Button;
         
         // CONSTRUCTOR ++++++++++++++++++++++
         constructor() {
@@ -23,6 +24,16 @@ module scenes {
             this.addChild(this._playLabel);
 
 
+            //Add Rolll Button to the Play Scene
+            this._rollButton = new objects.Button(
+                "RollButton",
+                config.Screen.CENTER_X,
+                config.Screen.CENTER_Y + 180);
+            this.addChild(this._rollButton);
+            
+            //add Event listener for Roll button
+            this._rollButton.on("click", this._rollButtonClick, this);
+
             // add this scene to the global stage container
             stage.addChild(this);
         }
@@ -34,6 +45,13 @@ module scenes {
         
         
         //EVENT HANDLERS ++++++++++++++++++++
+        
+        //Roll button click event handler
+        private _rollButtonClick(event: createjs.MouseEvent)
+        {
+            var rand1 = Math.floor((Math.random() * 6) + 1);
+            var rand2 = Math.floor((Math.random() * 6) + 1);
+        }
         
     }
 }
