@@ -19,7 +19,7 @@ var scenes;
             this._playLabel = new objects.Label("PLAY SCENE", "60px Consolas", "#000000", config.Screen.CENTER_X, config.Screen.CENTER_Y - 200);
             this.addChild(this._playLabel);
             //Add Rolll Button to the Play Scene
-            this._rollButton = new objects.Button("RollButton", config.Screen.CENTER_X, config.Screen.CENTER_Y + 180);
+            this._rollButton = new objects.Button("RollButton", config.Screen.CENTER_X, config.Screen.CENTER_Y + 200);
             this.addChild(this._rollButton);
             //add Event listener for Roll button
             this._rollButton.on("click", this._rollButtonClick, this);
@@ -29,8 +29,12 @@ var scenes;
             console.log("rand1= " + rand1);
             var rand2 = Math.floor((Math.random() * 6) + 1);
             console.log("rand2= " + rand2);
-            // for (var die:number = 0; die < 2; die++)
-            //{
+            //Add Die 1 Label
+            this._die1Label = new objects.Label("Die 1: " + rand1, "20px Consolas", "#000000", config.Screen.CENTER_X - 70, config.Screen.CENTER_Y + 100);
+            this.addChild(this._die1Label);
+            //Add Die 2 Label
+            this._die2Label = new objects.Label("Die 2: " + rand2, "20px Consolas", "#000000", config.Screen.CENTER_X + 50, config.Screen.CENTER_Y + 100);
+            this.addChild(this._die2Label);
             switch (rand1) {
                 case 1:
                     this._hand[0] = new createjs.Bitmap(assets.getResult("One"));
@@ -90,41 +94,9 @@ var scenes;
         Play.prototype._rollButtonClick = function (event) {
             scene = config.Scene.PLAY;
             changeScene();
-            /*
-            var rand1 = Math.floor((Math.random() * 6) + 1);
-            var rand2 = Math.floor((Math.random() * 6) + 1);
-            
-            
-            //this.removeChild(this._hand[0]);
-            
-            switch(rand1)
-                {
-                                       
-                    case 1:
-                    this._hand[0] = new createjs.Bitmap(assets.getResult("One"));
-                    
-                    case 2:
-                    this._hand[0] = new createjs.Bitmap(assets.getResult("Two"));
-                    
-                    case 3:
-                    this._hand[0] = new createjs.Bitmap(assets.getResult("Three"));
-                    
-                    case 4:
-                    this._hand[0] = new createjs.Bitmap(assets.getResult("Four"));
-                    
-                    case 5:
-                    this._hand[0] = new createjs.Bitmap(assets.getResult("Five"));
-                    
-                    case 6:
-                    this._hand[0] = new createjs.Bitmap(assets.getResult("Six"));
-                    
-                  
-                }
-                stage.addChild(this._hand[0]);
-                */
-        };
+        }; //click
         return Play;
     })(objects.Scene);
-    scenes.Play = Play;
+    scenes.Play = Play; //Play()
 })(scenes || (scenes = {})); //scene
 //# sourceMappingURL=play.js.map
