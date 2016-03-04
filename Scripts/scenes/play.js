@@ -1,3 +1,10 @@
+/*
+File Name: play.ts
+Author: Tom Tsiliopoulos
+Modified for exam by: Sean R Smith
+Date: March 4, 2016
+Web application to roll 2 virtual dice and display results.
+*/
 var __extends = (this && this.__extends) || function (d, b) {
     for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p];
     function __() { this.constructor = d; }
@@ -55,10 +62,10 @@ var scenes;
                     this._hand[0] = new createjs.Bitmap(assets.getResult("Six"));
                     break;
             }
-            //this._hand[0] = new createjs.Bitmap(assets.getResult("One"));
-            this._hand[0].x = 193; //+ (die * 120);
+            this._hand[0].x = 193;
             this._hand[0].y = 217;
             this.addChild(this._hand[0]);
+            //choose image files
             switch (rand2) {
                 case 1:
                     this._hand[1] = new createjs.Bitmap(assets.getResult("One"));
@@ -79,8 +86,7 @@ var scenes;
                     this._hand[1] = new createjs.Bitmap(assets.getResult("Six"));
                     break;
             }
-            //this._hand[0] = new createjs.Bitmap(assets.getResult("One"));
-            this._hand[1].x = 193 + 120; //+ (die * 120);
+            this._hand[1].x = 193 + 120;
             this._hand[1].y = 217;
             this.addChild(this._hand[1]);
             // add this scene to the global stage container
@@ -90,7 +96,7 @@ var scenes;
         Play.prototype.update = function () {
         };
         //EVENT HANDLERS ++++++++++++++++++++
-        //Roll button click event handler
+        //Roll button click event handler- change state to renew dice.
         Play.prototype._rollButtonClick = function (event) {
             scene = config.Scene.PLAY;
             changeScene();

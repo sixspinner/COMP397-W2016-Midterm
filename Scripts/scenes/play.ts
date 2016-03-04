@@ -1,3 +1,12 @@
+/*
+File Name: play.ts
+Author: Tom Tsiliopoulos
+Modified for exam by: Sean R Smith
+Date: March 4, 2016
+Web application to roll 2 virtual dice and display results.
+*/
+
+
 // PLAY SCENE
 module scenes {
     export class Play extends objects.Scene {
@@ -87,14 +96,14 @@ module scenes {
                     this._hand[0] = new createjs.Bitmap(assets.getResult("Six"));
                     break;                  
                 }
-                //this._hand[0] = new createjs.Bitmap(assets.getResult("One"));
-                this._hand[0].x = 193 ;//+ (die * 120);
+                
+                this._hand[0].x = 193 ;
                 this._hand[0].y = 217;
   
                 this.addChild(this._hand[0]);
                 
                 
-                
+                //choose image files
                 switch(rand2)
                 {                                
                     case 1:
@@ -121,8 +130,8 @@ module scenes {
                     this._hand[1] = new createjs.Bitmap(assets.getResult("Six"));
                     break;                 
                 }
-                //this._hand[0] = new createjs.Bitmap(assets.getResult("One"));
-                this._hand[1].x = 193+120 ;//+ (die * 120);
+                
+                this._hand[1].x = 193+120 ;
                 this._hand[1].y = 217;
   
                 this.addChild(this._hand[1]);
@@ -141,7 +150,7 @@ module scenes {
         
         //EVENT HANDLERS ++++++++++++++++++++
         
-        //Roll button click event handler
+        //Roll button click event handler- change state to renew dice.
         private _rollButtonClick(event: createjs.MouseEvent)
         {
             scene = config.Scene.PLAY;
